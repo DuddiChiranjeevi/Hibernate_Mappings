@@ -1,0 +1,18 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.mtma.entities">
+<class name="Passenger" table="passenger">
+<id name="passengerNo" column="passenger_no">
+<generator class="increment"></generator>
+</id>
+<property name="description" />
+<property name="tripDays" column="trip_days" />
+<property name="billAmount" column="bill_amount" />
+<property name="contactNo" column="contact_no"></property>
+<property name="emailAddress" column="email_address"></property>
+
+</class>
+</hibernate-mapping>

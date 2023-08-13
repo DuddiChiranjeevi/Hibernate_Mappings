@@ -1,0 +1,27 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping package="com.otma.entities">
+<class name="Course" table="course">
+<id name="courseId" column="course_id">
+<generator class="increment"></generator>
+</id>
+<property name="courseName" column="course_nm"/>
+<property name="startingDate" column="starting_dt"/>
+<property name="durationInMonths" column="duration_in_months"/>
+<property name="fee" />
+<property name="trainerName" column="trainer_nm"/>
+<property name="instituteName" column="institute_nm"/>
+<property name="contactNo" column="contact_no"/>
+
+<set name="students">
+<key column="course_id">
+</key>
+<one-to-many class="Student"/>
+</set>
+
+</class>
+
+
+</hibernate-mapping>

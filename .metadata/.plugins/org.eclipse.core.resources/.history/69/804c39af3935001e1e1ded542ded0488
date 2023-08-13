@@ -1,0 +1,13 @@
+package com.mtma.helper;
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class SFRegistry {
+
+	private static SessionFactory sessionFactory;
+	
+	static {
+		Configuration configuration=new Configuration().configure("hibernate.hbm.xml");
+	}
+}

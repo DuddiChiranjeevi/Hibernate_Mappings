@@ -1,0 +1,34 @@
+package com.otm.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
+import java.io.Serializable;
+import java.util.Set;
+
+@Entity
+@Table(name="product")
+@Data
+@EqualsAndHashCode(exclude = {"price","reviews"})
+@ToString(exclude = {"reviews"})
+@Builder(builderMethodName = "of")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Product implements Serializable {
+   
+	private static final long serialVersionUID = 1L;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="product_id")
+    private int productId;
+    @Column(name="product_nm")
+    private String  productName;
+    private String manufacturer;
+    private double price;
+    @OneToMany(mappedBy = "products",fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SELECT)
+    private Set<Review> reviews;
+
+}

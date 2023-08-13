@@ -1,0 +1,66 @@
+package com.otm.test;
+
+import com.otm.entities.Product;
+import com.otm.entities.Review;
+import com.otm.helper.SFRegistry;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+public class OTMTest {
+    public static void main(String[] args) {
+        SessionFactory sf=null;
+        Session session=null;
+        Transaction transaction=null;
+        boolean flag=false;
+        try{
+
+            sf= SFRegistry.getSessionFactory();
+            session=sf.openSession();
+            transaction=session.beginTransaction();
+
+            Product product=new Product();
+            product.setProductName("Realme c25");
+            product.setManufacturer("Realme");
+            product.setPrice(13000);
+
+            Review review=new Review();
+            review.setRating(4);
+            review.setPostedDate(LocalDate.now());
+            review.setReviewerName("Chiranjeevi");
+            review.setProducts(product);
+            session.persist(review);
+            
+            System.out.println("Review No :"+review.getReviewNo());
+            Set<Review> reviews=new HashSet<>();
+            
+            reviews.add(review);
+            product.setReviews( reviews);
+            session.persist(product);
+            System.out.println(" Product no :"+product.getProductId());
+            flag=true;
+        }catch(Exception e){
+            e.printStackTrace();
+            flag=false;
+            throw e;
+        }finally{
+            if(transaction !=null){
+            if(flag){
+                transaction.commit();
+            }else{
+                transaction.rollback();
+            }
+            }
+            if(session !=null){
+                session.close();
+                session=null;
+            }
+        }
+
+    }
+}

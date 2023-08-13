@@ -1,0 +1,17 @@
+package com.mtma.entities;
+
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder(buildMethodName = "of")
+public class Trip {
+
+	private int tripNo;
+	private String description;
+	private int tripDays;
+	private double billAmount;
+	private String contactNo;
+	private String emailId;
+	
+}

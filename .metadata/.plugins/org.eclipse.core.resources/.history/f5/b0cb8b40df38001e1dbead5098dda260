@@ -1,0 +1,60 @@
+package com.otm.test;
+
+import com.otm.entities.Product;
+import com.otm.entities.Review;
+import com.otm.helper.SFRegistry;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+
+import java.time.LocalDate;
+import java.util.HashSet;
+import java.util.Set;
+
+public class OTMTest {
+    public static void main(String[] args) {
+        SessionFactory sf=null;
+        Session session=null;
+        Transaction transaction=null;
+        boolean flag=false;
+        try{
+
+            sf= SFRegistry.getSessionFactory();
+            session=sf.openSession();
+            transaction=session.beginTransaction();
+
+            
+         Review review=new Review();
+         review.setReviewerName("Chiranjeevi");
+         review.setRating(4);
+         review.setPostedDate(LocalDate.now());
+         
+         
+         Set<Review> reviews=new HashSet<>();
+         reviews.add(review);
+         
+         
+
+
+          
+        }catch(Exception e){
+            e.printStackTrace();
+            flag=false;
+            throw e;
+        }finally{
+            if(transaction !=null){
+            if(flag){
+                transaction.commit();
+            }else{
+                transaction.rollback();
+            }
+            }
+            if(session !=null){
+                session.close();
+                session=null;
+            }
+        }
+
+    }
+}

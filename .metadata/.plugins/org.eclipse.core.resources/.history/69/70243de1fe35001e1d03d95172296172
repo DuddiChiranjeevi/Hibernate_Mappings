@@ -1,0 +1,109 @@
+package com.mtma.test;
+
+import java.time.LocalDate;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.mtma.entities.Passenger;
+import com.mtma.entities.Trip;
+import com.mtma.helper.SFRegistry;
+
+public class MTMATest {
+	public static void main(String[] args) {
+		SessionFactory sessionFactory = null;
+		Session session = null;
+		Transaction transaction = null;
+		boolean flag = false;
+		try {
+
+			sessionFactory = SFRegistry.getSessionFactory();
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+//
+//			Trip trip1 = Trip.of().description("Tirupathi to Kasi family trip").tripDays(5).billAmount(15000)
+//					.contactNo("632100004").emailId("royal.travels@gmail.com").build();
+//			session.persist(trip1);
+//			System.out.println("Trip no: " + trip1.getTripId());
+//
+//			Trip trip2 = Trip.of().description("Hyderabad to Kasi family trip").tripDays(7).billAmount(25000)
+//					.contactNo("632100004").emailId("royal.travels@gmail.com").build();
+//			session.persist(trip2);
+//			System.out.println("Trip no: " + trip2.getTripId());
+//
+//			Trip trip3 = Trip.of().description("Chittoor to Kanchipuram family trip").tripDays(2).billAmount(2500)
+//					.contactNo("632100004").emailId("royal.travels@gmail.com").build();
+//			session.persist(trip3);
+//			System.out.println("Trip no: " + trip3.getTripId());
+//
+//			Set<Trip> chiranjeeviTrips = new HashSet<>();
+//			chiranjeeviTrips.add(trip1);
+//			chiranjeeviTrips.add(trip3);
+//
+//		
+//
+//			Passenger passenger1 = Passenger.of().passengerName("chiranjeevi").dob(LocalDate.of(1998, 8, 6))
+//					.gender("Male").emailId("chiru@gmail.com").mobileNo("9490642337")
+//					.address("Dasarinetham v, Kollagunta p,K nagaram,Chittoor D ").tripDetails(chiranjeeviTrips).build();
+//
+//			session.persist(passenger1);
+//			System.out.println("Passenger No :"+passenger1.getPassengerNo());
+//			
+//			Set<Trip> rakeshTrips = new HashSet<>();
+//			rakeshTrips.add(trip2);
+//			Passenger passenger2 = Passenger.of().passengerName("Rakesh").dob(LocalDate.of(1998, 8, 6))
+//					.gender("Male").emailId("rakesh@gmail.com").mobileNo("9490642337")
+//					.address("Dasarinetham v, Kollagunta p,K nagaram,Chittoor D ").tripDetails(rakeshTrips).build();
+//			session.persist(passenger2);
+//			System.out.println("Passenger No :"+passenger2.getPassengerNo());
+			
+//			Passenger passenger=session.get(Passenger.class, 2);
+//			System.out.println(passenger.getTripDetails());
+//			
+			
+			Passenger passenger1 = Passenger.of().passengerName("Sai kumar").dob(LocalDate.of(1995, 8, 6))
+					.gender("Male").emailId("sai@gmail.com").mobileNo("9490642337")
+					.address("Nadimpalli v, Kollagunta p,K nagaram,Chittoor D ").build();
+			session.persist(passenger1);
+			System.out.println("Passenger No :"+passenger1.getPassengerNo());
+			
+			
+			
+			Passenger passenger2 = Passenger.of().passengerName("Praveen").dob(LocalDate.of(1998, 8, 6))
+					.gender("Male").emailId("praveen@gmail.com").mobileNo("9490642337")
+					.address("Dasarinetham v, Kollagunta p,K nagaram,Chittoor D ").build();
+			session.persist(passenger2);
+			System.out.println("Passenger No :"+passenger2.getPassengerNo());
+			
+			
+			
+			
+			Trip trip1 = Trip.of().description("Tirupathi to Kasi family trip").tripDays(5).billAmount(15000)
+					.contactNo("632100004").emailId("royal.travels@gmail.com").build();
+			session.persist(trip1);
+			System.out.println("Trip no: " + trip1.getTripId());
+
+			
+			flag=true;
+			
+		} catch (Throwable t) {
+			t.printStackTrace();
+			flag = false;
+			throw t;
+		} finally {
+			if (transaction != null) {
+				if (flag) {
+					transaction.commit();
+				} else {
+					transaction.rollback();
+				}
+			}
+			if (session != null) {
+				session.close();
+				session = null;
+
+			}
+		}
+	}
+}

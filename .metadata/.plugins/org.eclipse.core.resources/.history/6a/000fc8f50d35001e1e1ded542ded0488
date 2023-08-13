@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.otmm.entities">
+<class name="Project" table="project">
+<id name="projectId" column="project_id">
+<generator class="increment"></generator>
+</id>
+<property name="projectName" column="project_nm"/>
+<property name="description" />
+<property name="duration" />
+<property name="estimatedAmount" column="estimated_amt"/>
+
+</class>
+</hibernate-mapping>

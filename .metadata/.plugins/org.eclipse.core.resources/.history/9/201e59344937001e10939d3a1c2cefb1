@@ -1,0 +1,12 @@
+package com.mtm.entities;
+
+public class Employee {
+	private int empId;
+	private String empName;
+	private String gender;
+	private String emailId;
+	private String mobileNo;
+	private String designation;
+	
+
+}

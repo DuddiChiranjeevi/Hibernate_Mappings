@@ -1,0 +1,17 @@
+package com.mtm.test;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+
+public class MTMJAnnoTest {
+
+	public static void main(String[] args) {
+		
+		EntityManagerFactory entityManagerFactory=null;
+		EntityManager entityManager=null;
+		EntityTransaction entityTransaction=null;
+		
+		
+	}
+}

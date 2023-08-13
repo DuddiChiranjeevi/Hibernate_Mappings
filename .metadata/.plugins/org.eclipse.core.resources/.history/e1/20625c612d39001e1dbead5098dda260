@@ -1,0 +1,69 @@
+package com.otm.test;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.otm.entities.Product;
+import com.otm.helper.SFRegistry;
+
+public class OTMTest {
+    public static void main(String[] args) {
+        SessionFactory sf=null;
+        Session session=null;
+        Transaction transaction=null;
+        boolean flag=false;
+        try{
+
+            sf= SFRegistry.getSessionFactory();
+            session=sf.openSession();
+            transaction=session.beginTransaction();
+//
+//          Review review =new Review();
+//          review.setReviewerName("Chiranjeevi");
+//          review.setPostedDate(LocalDate.now());
+//          review.setRating(4);
+//
+//          Set<Review> reviews=new HashSet<>();
+//          reviews.add(review);
+//          Product product=new Product();
+//          product.setProductName("Realme c25");
+//          product.setManufacturer("Real Me");
+//          product.setPrice(13000);
+//          product.setReviews(reviews);
+//          session.persist(product);
+//            System.out.println("Product Id :"+product.getProductId());
+//
+//          review.setProducts(product);
+//          session.persist(review);
+//            System.out.println("Review id :"+review.getReviewNo());
+
+
+            Product product=session.get(Product.class, 1);
+            System.out.println(product);
+
+            Set<Review> reviews=product.getReviews();
+            System.out.println("Class Name"+reviews.getClass().getName());
+            reviews.forEach(System.out::println);
+
+            flag=true;
+        }catch(Exception e){
+            e.printStackTrace();
+            flag=false;
+            throw e;
+        }finally{
+            if(transaction !=null){
+            if(flag){
+                transaction.commit();
+            }else{
+                transaction.rollback();
+            }
+            }
+            if(session !=null){
+                session.close();
+                session=null;
+            }
+        }
+
+    }
+}

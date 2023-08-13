@@ -1,0 +1,55 @@
+package com.otoasotm.test;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.otoasotm.entities.Product;
+import com.otoasotm.helper.SFRegistry;
+
+public class OtmAsOtoAnnoTest {
+
+	public static void main(String[] args) {
+		SessionFactory sessionFactory = null;
+		Session session = null;
+		Transaction transaction = null;
+		boolean flag = false;
+
+		try {
+			sessionFactory = SFRegistry.getSessionFactory();
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+
+//			Product product=Product.of().productName("Mens Shirts").manufacturer("NETPLAY").price(950).productCode("C0011").build();
+//			session.persist(product);
+//			System.out.println("Product No:"+product.getProductId());
+//			
+			
+			Product product=session.get(Product.class, 1);
+			product.getWarranties().forEach(System.out::println);
+			
+//			Warranty warranty=Warranty.of().warrantyIssuedDate(LocalDate.now()).noDays(25).mobileNo("9490642337").product(product).build();
+//			session.persist(warranty);
+//			System.out.println("Warranty no: "+warranty.getWarrantyNo());
+			flag = true;
+			
+		} catch (Exception e) {
+			flag = false;
+			e.printStackTrace();
+			throw e;
+		} finally {
+			if (transaction != null) {
+				if (flag) {
+					transaction.commit();
+				} else {
+					transaction.rollback();
+				}
+			}
+			if (session != null) {
+				session.close();
+				session = null;
+			}
+		}
+		SFRegistry.closeSessionFactory();
+	}
+}

@@ -1,0 +1,17 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping package="com.oto.entities">
+<class name="Bill" table="bill">
+<id name="billNo" column="bill_no">
+<generator class="increment"></generator>
+</id>
+<property name="billName" column="bill_nm"/>
+<property name="billGenratedDate" column="bill_genrated_dt"/>
+<property name="customerName" column="customer_nm"/>
+<property name="mobileNo" column="mobile_no"/>
+<property name="dueDate" column="due_date"/>
+<property name="billAmount" column="bill_amount"/>
+</class>
+</hibernate-mapping>

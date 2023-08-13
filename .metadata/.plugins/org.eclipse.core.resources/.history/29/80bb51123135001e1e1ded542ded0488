@@ -1,0 +1,33 @@
+package com.otoasotm.entities;
+
+import java.io.Serializable;
+import java.util.Set;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+@Entity
+@Table(name="product")
+@Setter
+@Getter
+@EqualsAndHashCode(exclude = {""})
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder(builderMethodName = "of")
+public class Product  implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	private int productId;
+	private String productName;
+	private double price;
+	private String manufacturer;
+	private String productCode;
+	private Set<Warranty> warranties;
+	
+}
+

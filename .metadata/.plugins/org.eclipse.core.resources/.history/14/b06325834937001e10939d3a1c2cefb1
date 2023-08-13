@@ -1,0 +1,28 @@
+package com.mtm.entities;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder(builderMethodName = "of")
+@ToString(exclude = {"projects"})
+public class Employee {
+	private int empId;
+	private String empName;
+	private LocalDate dob;
+	private String gender;
+	private String emailId;
+	private String mobileNo;
+	private String designation;
+	private Set<Project> projects;
+	
+
+}

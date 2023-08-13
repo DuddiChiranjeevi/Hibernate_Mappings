@@ -1,0 +1,49 @@
+package com.mtm.test;
+
+import java.time.LocalDate;
+
+import com.mtm.entities.Employee;
+import com.mtm.helper.PFRegistry;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+
+public class MTMJAnnoTest {
+
+	public static void main(String[] args) {
+		
+		EntityManagerFactory entityManagerFactory=null;
+		EntityManager entityManager=null;
+		EntityTransaction entityTransaction=null;
+		boolean flag=false;
+		try {
+			
+			entityManagerFactory=PFRegistry.getEntityManagerFactory();
+			entityManager=entityManagerFactory.createEntityManager();
+			entityTransaction=entityManager.getTransaction();
+			entityTransaction.begin();
+			
+			Employee employee=Employee.of().empName("chiranjeevi").dob(LocalDate.of(1998, 8, 6)).gender("Male").emailId("chiru@gmail.com").mobileNo("9059798193").designation("application developer").build();
+			
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			flag=false;
+			throw e;
+		}finally {
+			if(entityTransaction !=null) {
+				if(flag) {
+					entityTransaction.commit();
+				}else {
+					entityTransaction.rollback();
+				}
+				
+			}
+			if(entityManager !=null) {
+				entityManager.close();
+				entityManager=null;
+			}
+		}
+	}
+}

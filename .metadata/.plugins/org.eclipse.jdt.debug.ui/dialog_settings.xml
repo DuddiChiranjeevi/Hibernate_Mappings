@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0" value="74"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1" value="649"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2" value="82"/>
+	<item key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn" value="1"/>
+	<section name="org.eclipse.jdt.debug.ui.MAIN_METHOD_SELECTION_DIALOG">
+		<item key="ShowStatusLine" value="true"/>
+		<item key="History" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History&gt;&#x0D;&#x0A;&lt;historyRootNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=onetomanyassiciation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otma.test{OTMATest.java[OTMATest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=onetooneassociation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.oto.test{OTOTest.java[OTOTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=onetomanyannotation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otma.test{OTMATest.java[OTMATest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=onetomanylist/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otml.test{OTMLTest.java[OTMLTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=onetomanymap/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otmm.test{OTMMTest.java[OTMMTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Bi-otmasotoAnnotation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otoasotm.test{OneToOneAsOneToManyTest.java[OneToOneAsOneToManyTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Bi-otmasotoAnnotation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otoasotm.test{OtmAsOtoAnnoTest.java[OtmAsOtoAnnoTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Bi_onetomanyannotation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.mtma.test{MTMAnnoTest.java[MTMAnnoTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=manytomanyassociation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.mtma.test{MTMATest.java[MTMATest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=onetomanylistannoatation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otml.test{OTMLTest.java[OTMLTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=mtmannojpa/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.mtm.test{MTMJAnnoTest.java[MTMJAnnoTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=Bi_onetomanyannotation/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otma.test{OTMAnnoTest.java[OTMAnnoTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;infoNode&gt;=ontetomany/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&amp;lt;com.otm.test{OTMTest.java[OTMTest&lt;/infoNode&gt;&#x0D;&#x0A;&lt;/historyRootNode&gt;&#x0D;&#x0A;&lt;/History&gt;"/>
+		<section name="DialogBoundsSettings">
+			<item key="DIALOG_HEIGHT" value="500"/>
+			<item key="DIALOG_WIDTH" value="600"/>
+			<item key="DIALOG_X_ORIGIN" value="391"/>
+			<item key="DIALOG_Y_ORIGIN" value="39"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+		</section>
+	</section>
+	<section name="expressionHistory">
+	</section>
+	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
+		<item key="WIDTH" value="614"/>
+		<item key="HEIGHT" value="194"/>
+		<item key="SashWeightTree" value="500"/>
+		<item key="SashWeightDetails" value="500"/>
+	</section>
+</section>

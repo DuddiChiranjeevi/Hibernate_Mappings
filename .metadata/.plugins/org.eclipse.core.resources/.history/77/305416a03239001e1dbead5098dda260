@@ -1,0 +1,90 @@
+package com.otm.test;
+
+import java.time.LocalDate;
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.otm.entities.Product;
+import com.otm.entities.Review;
+import com.otm.helper.SFRegistry;
+
+import jakarta.persistence.TypedQuery;
+
+public class OTMTest {
+	public static void main(String[] args) {
+		SessionFactory sf = null;
+		Session session = null;
+		Transaction transaction = null;
+		boolean flag = false;
+		try {
+
+			sf = SFRegistry.getSessionFactory();
+			session = sf.openSession();
+			transaction = session.beginTransaction();
+
+			Review review1 = new Review();
+			review1.setReviewerName("Sai kumar");
+			review1.setPostedDate(LocalDate.now());
+			review1.setRating(3);
+
+//			Review review2 = new Review();
+//			review2.setReviewerName("Rakesh");
+//			review2.setPostedDate(LocalDate.now());
+//			review2.setRating(4);
+
+//			Set<Review> reviews = new HashSet<>();
+//			reviews.add(review1);
+//			//reviews.add(review2);
+//			Product product = new Product();
+//			product.setManufacturer("OPO");
+//			product.setPrice(20000);
+//			product.setReviews(reviews);
+//			session.persist(product);
+//			System.out.println("Product Id :" + product.getProductId());
+//
+//			review1.setProducts(product);
+//			session.persist(review1);
+//			System.out.println("Review id :" + review1.getReviewNo());
+
+//			review2.setProducts(product);
+//			session.persist(review2);
+//			System.out.println("Review id :" + review2.getReviewNo());
+
+//            Product product=session.get(Product.class, 1);
+//            System.out.println(product);
+//
+//            Set<Review> reviews=product.getReviews();
+//            System.out.println("Class Name"+reviews.getClass().getName());
+//            reviews.forEach(System.out::println);
+
+			
+		TypedQuery<Product > queryProductByCatageory=session.createQuery(" from Product p where p.catageory=?1",Product.class);
+		queryProductByCatageory.setParameter(1, "electronic");
+		
+		List<Product> products=	queryProductByCatageory.getResultList();
+		System.out.println(products);
+			
+			flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			flag = false;
+			throw e;
+		} finally {
+			if (transaction != null) {
+				if (flag) {
+					transaction.commit();
+				} else {
+					transaction.rollback();
+				}
+			}
+			if (session != null) {
+				session.close();
+				session = null;
+			}
+		}
+
+	}
+}

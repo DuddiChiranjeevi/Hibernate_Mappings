@@ -1,0 +1,31 @@
+package com.mtma.entities;
+
+import java.time.LocalDate;
+import java.util.Set;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import lombok.Builder;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+@Entity
+@Table(name="course")
+@Setter
+@Getter
+@ToString
+@EqualsAndHashCode(exclude = {"dob","courses"})
+@Builder(builderMethodName = "of")
+public class Course {
+
+	private int courseId;
+	private String courseName;
+	private int duration;
+	private double fee;
+	@OneToMany
+	@JoinColumn(name ="course_id")
+	private Set<Student> students;
+}

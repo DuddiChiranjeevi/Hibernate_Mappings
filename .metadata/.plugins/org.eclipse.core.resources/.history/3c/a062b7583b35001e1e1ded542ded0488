@@ -1,0 +1,5 @@
+package com.mtma.entities;
+
+public class Student {
+
+}

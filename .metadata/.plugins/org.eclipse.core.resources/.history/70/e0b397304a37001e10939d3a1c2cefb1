@@ -1,0 +1,10 @@
+package com.mtm.entities;
+
+public class Project {
+
+	private int projectId;
+	private String projectName;
+	private String description;
+	private int duration;
+	
+}

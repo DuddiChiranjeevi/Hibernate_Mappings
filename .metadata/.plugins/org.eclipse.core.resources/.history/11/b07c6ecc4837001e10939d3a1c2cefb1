@@ -1,0 +1,17 @@
+package com.mtm.helper;
+
+import jakarta.persistence.EntityManagerFactory;
+
+public class PFRegistry {
+
+	private static EntityManagerFactory entityManagerFactory;
+	
+	static {
+		try {
+			
+		}catch(Throwable t) {
+			t.printStackTrace();
+			throw t;
+		}
+	}
+}

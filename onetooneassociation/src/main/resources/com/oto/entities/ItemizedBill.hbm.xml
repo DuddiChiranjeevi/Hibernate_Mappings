@@ -1,0 +1,19 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping package="com.oto.entities">
+<class name="ItemizedBill" table="itemized_bill">
+<id name="billNo" column="bill_no">
+<generator class="foreign">
+<param name="property">bill</param>
+</generator>
+</id>
+<property name="voiceCall" column="voice_call"/>
+<property name="internationalVoiceCall" column="international_voice_call"/>
+<property name="rommingVoice" column="romming_voice"/>
+<property name="message"/>
+<property name="previousDueAmount" column="previous_due_amount"/>
+<one-to-one name="bill" class="Bill"></one-to-one>
+</class>
+</hibernate-mapping>

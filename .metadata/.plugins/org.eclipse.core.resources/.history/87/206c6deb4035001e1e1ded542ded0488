@@ -1,0 +1,47 @@
+package com.otma.test;
+
+import java.time.LocalDate;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.otma.entities.Course;
+import com.otma.entities.Student;
+import com.otma.helper.SFRegistry;
+
+public class OTMAnnoTest {
+	public static void main(String[] args) {
+		SessionFactory sessionFactory = null;
+		Session session = null;
+		Transaction transaction = null;
+		boolean flag = false;
+		try {
+			sessionFactory = SFRegistry.getSessionFactory();
+			session = sessionFactory.openSession();
+			transaction = session.beginTransaction();
+
+			Course course = Course.of().build();
+
+			flag = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			flag = false;
+			throw e;
+		} finally {
+			if (transaction != null) {
+				if (flag) {
+					transaction.commit();
+				} else {
+					transaction.rollback();
+				}
+			}
+			if (session != null) {
+				session.close();
+				session = null;
+			}
+		}
+
+		SFRegistry.closeSessionFactory();
+	}
+}

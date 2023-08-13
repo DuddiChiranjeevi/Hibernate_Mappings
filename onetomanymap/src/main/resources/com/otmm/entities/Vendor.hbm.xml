@@ -1,0 +1,22 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping package="com.otmm.entities">
+<class name="Vendor" table="vendor">
+<id name="vendorId" column="vendor_id">
+<generator class="increment"></generator>
+</id>
+<property name="vendorName" column="vendor_nm"/>
+<property name="estabelishedDate" column="estabelished_dt"/> 
+<property name="mobileNo" column="mobile_no"/> 
+<property name="emailId" column="email_id"/> 
+
+<map name="allocatedProjects">
+<key column="vendor_id" not-null="false"></key>
+<map-key column="contract_no" type="string"></map-key>
+<one-to-many class="Project"/>
+</map>
+</class>
+</hibernate-mapping>

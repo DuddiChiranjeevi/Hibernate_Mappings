@@ -1,0 +1,21 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+<hibernate-mapping package="com.otma.entities">
+<class name="Student" table="student">
+<id name="studentId" column="student_id">
+<generator class="increment"></generator>
+ </id>
+<property name="fullName" column="full_nm"/>
+<property name="age" />
+<property name="gender" />
+<property name="mobileNo" column="mobile_no"/>
+<property name="emailId" column="email_id"/>
+<!-- <many-to-one name="course">
+<column name="course_id" not-null="true" ></column>
+</many-to-one> -->
+</class>
+
+
+</hibernate-mapping>

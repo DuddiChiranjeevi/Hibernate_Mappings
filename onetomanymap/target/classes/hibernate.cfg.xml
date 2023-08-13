@@ -1,0 +1,17 @@
+<!DOCTYPE hibernate-configuration SYSTEM 
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.deriverClassname">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/mappingdb</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">root</property>
+
+		<property name="show_sql">true</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hbm2ddl.auto">update</property>
+
+		<mapping resource="com/otmm/entities/Project.hbm.xml" />
+		<mapping resource="com/otmm/entities/Vendor.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

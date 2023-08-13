@@ -1,0 +1,5 @@
+package com.mtm.entities;
+
+public class Employee {
+
+}

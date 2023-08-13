@@ -1,0 +1,25 @@
+package com.mtma.test;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.mtma.helper.SFRegistry;
+
+public class MTMAnnoTest {
+public static void main(String[] args) {
+	SessionFactory sessionFactory=null;
+	Session session=null;
+	Transaction transaction=null;
+	boolean flag=false;
+	try {
+		
+	}catch (Exception e) {
+		e.printStackTrace();
+		flag=false;
+		throw e;
+	}
+	
+	SFRegistry.closeSessionFactory();
+}
+}

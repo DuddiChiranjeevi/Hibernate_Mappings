@@ -1,0 +1,17 @@
+package com.mtma.entities;
+
+import java.util.Set;
+
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
+
+public class Course {
+
+	private int courseId;
+	private String courseName;
+	private int duration;
+	private double fee;
+	@OneToMany
+	@JoinColumn(name ="course_id")
+	private Set<Student> students;
+}

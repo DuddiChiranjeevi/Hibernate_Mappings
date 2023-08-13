@@ -1,0 +1,28 @@
+package com.otm.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+@Entity
+@Table
+@Data
+@Builder(builderMethodName = "of")
+@EqualsAndHashCode(exclude = {"products","reviewNo","postedDate"})
+@AllArgsConstructor
+@NoArgsConstructor
+public class Review implements Serializable {
+@Id
+@GeneratedValue(strategy = GenerationType.IDENTITY)
+@Column(name="review_no")
+    private int reviewNo;
+    private int rating;
+    @Column(name="reviewer_nm")
+    private String reviewerName;
+    @Column(name="posted_dt")
+    private LocalDate postedDate;
+    @ManyToOne
+    @JoinColumn(name="product_id",nullable = true)
+    private Product products;
+}

@@ -1,0 +1,30 @@
+package com.otml.entities;
+
+import java.util.List;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder(builderMethodName = "of")
+@Entity
+@Table(name="restaurant")
+@EqualsAndHashCode(exclude = {"orders","rating"})
+public class Restaurant {
+
+	private int restaurantId;
+	private String restaurantName;
+	private String address;
+	private String contactNo;
+	private String emailId;
+	private int rating;
+	private List<Order> orders;
+	
+}

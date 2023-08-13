@@ -1,0 +1,29 @@
+package com.otm.entities;
+
+import jakarta.persistence.*;
+import lombok.*;
+
+import java.io.Serializable;
+import java.util.Set;
+
+@Entity
+@Table
+@Data
+@EqualsAndHashCode(exclude = {"price","reviews"})
+@ToString(exclude = {"reviews"})
+@Builder(builderMethodName = "of")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Product implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="product_id")
+    private int productId;
+    @Column(name="product_nm")
+    private String  productName;
+    private String manufacturer;
+    private double price;
+    @OneToMany(mappedBy = "products")
+    private Set<Review> reviews;
+
+}

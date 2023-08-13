@@ -1,0 +1,13 @@
+package com.mtma.entities;
+
+import java.time.LocalDate;
+
+public class Student {
+
+	private int studentId;
+	private String studentName;
+	private String gender;
+	private LocalDate dob;
+	private String emailId;
+	private String mobileNo;
+}
